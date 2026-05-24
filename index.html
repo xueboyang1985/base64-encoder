@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base64 Encoder Decoder - Free Online Tool</title>
+<meta name="description" content="Encode and decode Base64 instantly. Convert text or files to Base64 and back. 100% browser-based, no upload, no tracking.">
+<meta property="og:title" content="Base64 Encoder Decoder - Free Online Tool">
+<meta property="og:description" content="Encode text/files to Base64 and decode back. 100% browser-based, no server, no tracking.">
+<meta property="og:image" content="https://xueboyang1985.github.io/base64-encoder/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xueboyang1985.github.io/base64-encoder/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://xueboyang1985.github.io/base64-encoder/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔤</text></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Base64 Encoder Decoder - Free Online Tool",
+  "url": "https://xueboyang1985.github.io/base64-encoder/",
+  "description": "Encode and decode Base64 instantly. Convert text or files to Base64 and back. 100% browser-based.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "9.99",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Base64 encoding",
+    "Base64 decoding",
+    "File to Base64",
+    "Copy & download output"
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8fafc;color:#1a1a1a;line-height:1.6;}
+.container{max-width:700px;margin:0 auto;padding:20px;}
+.header{text-align:center;padding:40px 0 20px;}
+.header h1{font-size:28px;margin-bottom:8px;color:#1a1a1a;}
+.header p{color:#64748b;font-size:15px;}
+.card{background:white;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+textarea{width:100%;height:200px;padding:12px;border:2px solid #e2e8f0;border-radius:8px;font-family:ui-monospace,SFMono-Regular,monospace;font-size:13px;resize:vertical;line-height:1.5;transition:border-color 0.15s;}
+textarea:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,0.1);}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;}
+.btn{padding:8px 20px;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500;transition:all 0.15s;}
+.btn-primary{background:#6366f1;color:white;}
+.btn-primary:hover{background:#4f46e5;}
+.btn-secondary{background:#e2e8f0;color:#475569;}
+.btn-secondary:hover{background:#cbd5e1;}
+.btn-success{background:#059669;color:white;}
+.btn-success:hover{background:#047857;}
+.btn-pro{background:#f59e0b;color:white;}
+.mode-switch{display:flex;gap:0;margin-bottom:16px;border-radius:8px;overflow:hidden;border:2px solid #e2e8f0;}
+.mode-btn{flex:1;padding:10px;text-align:center;cursor:pointer;font-size:14px;font-weight:500;background:white;color:#64748b;border:none;transition:all 0.15s;}
+.mode-btn.active{background:#6366f1;color:white;}
+.mode-btn:not(.active):hover{background:#f1f5f9;}
+.status-text{font-size:13px;color:#64748b;margin-top:8px;text-align:center;}
+.stat{font-size:12px;color:#94a3b8;margin-top:4px;}
+.free-hint{text-align:center;padding:10px;background:#fef3c7;border-radius:8px;font-size:13px;color:#92400e;margin-top:12px;}
+.free-hint a{color:#6366f1;font-weight:600;text-decoration:none;cursor:pointer;}
+.footer{text-align:center;padding:40px 0;color:#94a3b8;font-size:13px;}
+.cross-card{padding:16px;border-radius:8px;font-size:13px;}
+.cross-card p{color:#64748b;margin-bottom:4px;}
+.cross-card a{text-decoration:none;font-weight:600;}
+.file-drop{border:2px dashed #e2e8f0;border-radius:8px;padding:20px;text-align:center;color:#64748b;font-size:13px;cursor:pointer;transition:border-color 0.15s,background 0.15s;margin-top:12px;}
+.file-drop:hover{border-color:#6366f1;background:#f8fafc;}
+.file-drop.dragover{border-color:#6366f1;background:#eef2ff;}
+.file-name{font-size:12px;color:#6366f1;margin-top:4px;}
+@media(max-width:600px){.header h1{font-size:22px;}}
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:1000;}
+.modal{background:white;border-radius:16px;padding:28px;max-width:480px;width:90%;}
+.modal h2{font-size:22px;margin-bottom:16px;text-align:center;}
+.compare-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;}
+.compare-table th{background:#f1f5f9;padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0;}
+.compare-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9;}
+.pro-price{text-align:center;margin:16px 0;font-size:20px;font-weight:700;}
+.pro-price span{font-size:13px;color:#64748b;font-weight:400;}
+.license-row{display:flex;gap:8px;margin-top:16px;}
+.license-row input{flex:1;padding:10px 12px;border:1px solid #e2e8f0;border-radius:8px;font-size:13px;}
+.license-row input:focus{outline:none;border-color:#6366f1;}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:white;padding:10px 20px;border-radius:8px;font-size:13px;z-index:999;opacity:0;transition:opacity 0.3s;}
+.toast.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="toast" id="toast"></div>
+<div class="container">
+<div class="header">
+<h1>Base64 Encoder / Decoder</h1>
+<p>Encode text or files to Base64, or decode Base64 back to text — 100% in your browser</p>
+</div>
+
+<div class="card">
+<div class="mode-switch">
+<button class="mode-btn active" id="mode-encode" onclick="setMode('encode')">Encode</button>
+<button class="mode-btn" id="mode-decode" onclick="setMode('decode')">Decode</button>
+</div>
+
+<textarea id="input" placeholder="Enter text to encode/decode, or upload a file below..." spellcheck="false"></textarea>
+<div class="stat" id="size-stat">Size: 0 bytes</div>
+
+<div class="btn-row">
+<button class="btn btn-primary" id="btn-go" onclick="go()">Encode →</button>
+<button class="btn btn-secondary" onclick="cp()">Copy Output</button>
+<button class="btn btn-secondary" onclick="dl()">Download</button>
+<button class="btn btn-secondary" onclick="clr()">Clear</button>
+</div>
+
+<div class="file-drop" id="file-drop">
+📁 Drop a file here or click to select (under 10KB free)
+</div>
+<input type="file" id="file-input" style="display:none">
+
+<textarea id="output" placeholder="Output will appear here..." readonly spellcheck="false"></textarea>
+
+<p class="free-hint" id="free-hint">Free: 10KB. <a onclick="showProModal()">Get PRO</a> for unlimited file size.</p>
+</div>
+
+<div class="cross-card" style="border-left:3px solid #6366f1;">
+<p>Also check out <strong>Password Generator</strong> &mdash; create strong, secure passwords instantly</p>
+<a href="https://xueboyang1985.github.io/password-generator/" target="_blank" style="color:#6366f1;">Try Password Generator &rarr;</a>
+</div>
+<div class="cross-card" style="border-left:3px solid #6366f1;">
+<p>Also check out <strong>JSON Formatter &amp; CSV Converter</strong> &mdash; format, validate, convert JSON and CSV</p>
+<a href="https://xueboyang1985.github.io/json-csv-converter/" target="_blank" style="color:#6366f1;">Try JSON Formatter &rarr;</a>
+</div>
+<div class="cross-card" style="border-left:3px solid #ef4444;">
+<p>Also check out <strong>PDF Tools</strong> &mdash; merge, split, convert PDFs in your browser</p>
+<a href="https://xueboyang1985.github.io/pdf-tools/" target="_blank" style="color:#ef4444;">Try PDF Tools &rarr;</a>
+</div>
+
+<div class="footer">
+<p>100% local &bull; No upload &bull; No server &bull; Your data never leaves your device</p>
+</div>
+</div>
+
+<div class="modal-overlay" id="pro-modal" style="display:none" onclick="if(event.target===this)closeProModal()">
+<div class="modal">
+<h2>🚀 Base64 Encoder PRO</h2>
+<table class="compare-table">
+<tr><th>Feature</th><th>Free</th><th>PRO</th></tr>
+<tr><td>Max file size</td><td>10 KB</td><td>Unlimited</td></tr>
+<tr><td>All encode/decode modes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>File upload</td><td>Yes</td><td>Yes</td></tr>
+</table>
+<p class="pro-price">$9.99 <span>one-time payment</span></p>
+<p style="text-align:center;margin-bottom:12px;"><a href="javascript:void(0)" id="btn-buy-pro" class="btn btn-primary" style="text-decoration:none;display:inline-block;padding:10px 24px;">Buy PRO Key</a></p>
+<div class="license-row">
+<input type="text" id="pro-key" placeholder="Paste your Gumroad license key here">
+<button class="btn btn-primary" onclick="actPRO()">Activate</button>
+</div>
+</div>
+</div>
+
+<script src="https://gumroad.com/js/gumroad.js" defer></script>
+<script>
+// === Configuration ===
+const MAX_SIZE = 10 * 1024; // 10KB free
+const SECRET = 'B64PRO-ABCD-EFGH-IJKL-MNOP'.split('').reduce((a,c)=>a+c.charCodeAt(0),0);
+const DEMO_KEY = 'B64PRO-ABCD-EFGH-IJKL-MNOP';
+
+let mode = 'encode';
+let ops = 0, pro = 0;
+try { ops = parseInt(localStorage.getItem('b64_ops') || '0'); pro = localStorage.getItem('b64_pro') === '1'; } catch(e) {}
+
+function uc() { document.getElementById('size-stat').textContent = 'Size: ' + (pro ? 'unlimited' : Math.min(MAX_SIZE, MAX_SIZE) + ' max'); }
+function ok(size) { if(pro) return true; if(size > MAX_SIZE) { toast('Free limit: 10KB. Get PRO for unlimited.'); return false; } return true; }
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('mode-encode').className = 'mode-btn' + (m === 'encode' ? ' active' : '');
+  document.getElementById('mode-decode').className = 'mode-btn' + (m === 'decode' ? ' active' : '');
+  document.getElementById('input').placeholder = m === 'encode' ? 'Enter text to encode, or upload a file...' : 'Enter Base64 string to decode...';
+  document.getElementById('btn-go').textContent = m === 'encode' ? 'Encode →' : 'Decode →';
+}
+
+function go() {
+  const inp = document.getElementById('input').value;
+  if (!inp) return;
+  const size = new Blob([inp]).size;
+  if (!ok(size)) return;
+  try {
+    let result;
+    if (mode === 'encode') {
+      result = btoa(unescape(encodeURIComponent(inp)));
+    } else {
+      result = decodeURIComponent(escape(atob(inp.replace(/\s/g, ''))));
+    }
+    document.getElementById('output').value = result;
+  } catch(e) {
+    toast('Error: ' + (mode === 'encode' ? 'Failed to encode. Check input.' : 'Invalid Base64 string.'));
+  }
+}
+
+function cp() {
+  const o = document.getElementById('output');
+  if (!o.value) return;
+  navigator.clipboard.writeText(o.value).then(() => toast('Copied!'), () => {});
+}
+
+function dl() {
+  const o = document.getElementById('output');
+  if (!o.value) return;
+  const ext = mode === 'encode' ? '.txt' : '.decoded.txt';
+  const blob = new Blob([o.value], {type:'text/plain'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'base64-output' + ext; a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function clr() {
+  document.getElementById('input').value = '';
+  document.getElementById('output').value = '';
+  document.getElementById('size-stat').textContent = 'Size: 0 bytes';
+}
+
+// File handling
+document.getElementById('file-drop').addEventListener('click', () => document.getElementById('file-input').click());
+document.getElementById('file-input').addEventListener('change', handleFile);
+document.getElementById('file-drop').addEventListener('dragover', function(e) { e.preventDefault(); this.classList.add('dragover'); });
+document.getElementById('file-drop').addEventListener('dragleave', function(e) { e.preventDefault(); this.classList.remove('dragover'); });
+document.getElementById('file-drop').addEventListener('drop', function(e) { e.preventDefault(); this.classList.remove('dragover'); if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); });
+
+function handleFile(e) {
+  const file = e.target ? e.target.files[0] : e;
+  if (!file) return;
+  if (!ok(file.size)) { toast('File too large. Get PRO for unlimited size.'); return; }
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    const data = ev.target.result;
+    if (mode === 'encode') {
+      document.getElementById('input').value = data;
+    } else {
+      // For decode mode with files, try to read as text (Base64 file)
+      document.getElementById('input').value = data;
+    }
+    document.getElementById('size-stat').textContent = 'File: ' + file.name + ' (' + file.size + ' bytes)';
+    setMode('encode');
+    toast('File loaded: ' + file.name);
+  };
+  if (mode === 'decode') {
+    reader.readAsBinaryString ? reader.readAsBinaryString(file) : reader.readAsText(file);
+  } else {
+    reader.readAsDataURL(file);
+  }
+}
+
+// PRO key functions
+function validateProKeyFormat(k) { return /^B64PRO-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(k); }
+function offlineProChecksum(k) { return k.split('').reduce((a,c)=>a+c.charCodeAt(0),0) === SECRET; }
+
+async function actPRO() {
+  const k = document.getElementById('pro-key').value.trim().toUpperCase();
+  // 优先尝试离线检测key
+  if (k.startsWith('B64PRO-')) {
+    if (!validateProKeyFormat(k)) { toast('格式错误，应为 B64PRO-XXXX-XXXX-XXXX-XXXX'); return; }
+    if (offlineProChecksum(k)) { pro = 1; try { localStorage.setItem('b64_pro', '1'); } catch(e) {} closeProModal(); document.getElementById('free-hint').innerHTML = 'PRO 已激活 &mdash; 无限制使用。'; toast('PRO 已激活！'); uc(); return; }
+  }
+  // Gumroad API 验证
+  if (!k || k.length < 10) { toast('请输入从购买收据获得的 Gumroad 许可证密钥'); return; }
+  try {
+    const r = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product_id: 'xdlh1FHKAU0E7q3ZRuHPaw==', license_key: k })
+    });
+    const d = await r.json();
+    if (d.success && d.purchase) {
+      pro = 1; try { localStorage.setItem('b64_pro', '1'); } catch(e) {}
+      closeProModal(); document.getElementById('free-hint').innerHTML = 'PRO 已激活 &mdash; 无限制使用。'; toast('PRO 已激活！'); uc();
+    } else {
+      toast('许可证密钥无效');
+    }
+  } catch(e) {
+    toast('验证失败，请检查网络');
+  }
+}
+
+// Gumroad postMessage listener
+window.addEventListener('message', function(e) {
+  try {
+    var d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+    if (e.origin.indexOf('gumroad.com') >= 0 && d && d.license_key) {
+      document.getElementById('pro-key').value = d.license_key;
+      actPRO();
+    }
+  } catch(e1) {}
+});
+
+// Buy button
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('btn-buy-pro');
+  if (btn) {
+    btn.addEventListener('click', function() {
+      var url = 'https://xuebo8.gumroad.com/l/skxcpj';
+      var w = Math.min(600, window.innerWidth - 40);
+      var h = Math.min(700, window.innerHeight - 40);
+      var left = Math.max(0, (window.innerWidth - w) / 2);
+      var top = Math.max(0, (window.innerHeight - h) / 2);
+      var win = window.open(url, 'gumroad-checkout', 'width='+w+',height='+h+',left='+left+',top='+top+',menubar=no,toolbar=no,status=no');
+      if (!win) window.location.href = url;
+    });
+  }
+});
+
+function showProModal() { document.getElementById('pro-modal').style.display = 'flex'; }
+function closeProModal() { document.getElementById('pro-modal').style.display = 'none'; }
+function toast(msg) { var t=document.getElementById('toast'); t.textContent=msg; t.className='toast show'; setTimeout(function(){t.className='toast';},3000); }
+
+uc();
+</script>
+</body>
+</html>
