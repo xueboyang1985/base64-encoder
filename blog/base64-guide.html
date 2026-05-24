@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What is Base64? Complete Guide to Encoding & Decoding | Base64 Encoder</title>
+<meta name="description" content="Complete guide to Base64 encoding and decoding. Learn what Base64 is, why it's used, and how to encode/decode text and files online free in your browser.">
+<meta property="og:title" content="What is Base64? Complete Guide to Encoding & Decoding">
+<meta property="og:description" content="Learn what Base64 is, why it's used in web development, and how to encode/decode instantly.">
+<meta property="og:image" content="https://xueboyang1985.github.io/base64-encoder/og-image.png">
+<link rel="canonical" href="https://xueboyang1985.github.io/base64-encoder/blog/base64-guide.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What is Base64? Complete Guide to Encoding & Decoding",
+  "description": "Complete guide to Base64 encoding: what it is, why it's used, and how to encode/decode.",
+  "url": "https://xueboyang1985.github.io/base64-encoder/blog/base64-guide.html",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xueboyang1985.github.io/base64-encoder/" }
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8fafc;color:#1a1a1a;line-height:1.8;padding:20px;}
+.container{max-width:700px;margin:0 auto;}
+h1{font-size:28px;margin:30px 0 10px;}
+h2{font-size:20px;margin:30px 0 10px;color:#4338ca;}
+p{margin:12px 0;color:#475569;}
+ul{margin:12px 0 12px 24px;color:#475569;}
+.cta{background:#eef2ff;border-radius:12px;padding:24px;text-align:center;margin:30px 0;}
+.cta a{display:inline-block;padding:12px 28px;background:#6366f1;color:white;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;}
+.cta a:hover{background:#4f46e5;}
+.faq{border-top:1px solid #e2e8f0;padding:16px 0;}
+.faq h3{font-size:16px;cursor:pointer;color:#1a1a1a;}
+.faq p{display:none;margin-top:8px;}
+.meta{color:#94a3b8;font-size:13px;margin-bottom:20px;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:14px;}
+pre{background:#1e293b;color:#e2e8f0;padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;margin:12px 0;}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>What is Base64? A Complete Guide for Developers</h1>
+<p class="meta">Published May 2026</p>
+
+<p>If you've worked with web APIs, email attachments, or data URIs, you've encountered Base64. This guide explains what Base64 is, why it exists, and how to use it — with a free browser-based tool for encoding and decoding.</p>
+
+<div class="cta">
+<p><strong>Need to encode or decode Base64 right now?</strong></p>
+<a href="../">Open Base64 Encoder/Decoder →</a>
+</div>
+
+<h2>What is Base64 Encoding?</h2>
+<p>Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It uses 64 characters (A-Z, a-z, 0-9, +, /) plus = for padding. The primary purpose: reliably transmit binary data over systems designed for text.</p>
+
+<h2>Why is Base64 Used?</h2>
+<ul>
+<li><strong>Email attachments (MIME):</strong> SMTP was designed for 7-bit ASCII. Binary attachments must be encoded as Base64 to survive email transmission.</li>
+<li><strong>Data URIs:</strong> Embed images, fonts, or other binary data directly in HTML/CSS as <code>data:text/plain;base64,...</code></li>
+<li><strong>API payloads:</strong> JSON APIs often receive binary data as Base64-encoded strings since JSON doesn't natively support binary.</li>
+<li><strong>Authentication:</strong> HTTP Basic Auth uses Base64 to encode username:password pairs (though this is not encryption — it's easily decoded).</li>
+<li><strong>Storing binary in text databases:</strong> When databases lack BLOB support, Base64 is a common workaround.</li>
+</ul>
+
+<h2>How Base64 Works</h2>
+<p>Base64 processes data in groups of 3 bytes (24 bits):</p>
+<ul>
+<li>3 bytes → 24 bits → split into 4 groups of 6 bits each</li>
+<li>Each 6-bit value (0-63) maps to a character in the Base64 alphabet</li>
+<li>If input length isn't divisible by 3, <code>=</code> padding is added</li>
+</ul>
+
+<h2>Common Use Cases</h2>
+<ul>
+<li><strong>Embedding images in HTML emails:</strong> Inline images as Base64 data URIs ensure they display even when external resources are blocked</li>
+<li><strong>File upload previews:</strong> Convert a selected file to Base64 for instant browser-side preview</li>
+<li><strong>Small file transfer:</strong> Encode small configuration files or certificates for text-based transfer</li>
+<li><strong>Web Crypto operations:</strong> Export/import cryptographic keys as Base64-encoded strings</li>
+</ul>
+
+<div class="cta">
+<p><strong>Try it free in your browser — no upload, no tracking</strong></p>
+<a href="../">Base64 Encoder/Decoder →</a>
+</div>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<h3>Is Base64 encryption?</h3>
+<p>No. Base64 is encoding, not encryption. Anyone can decode Base64 instantly — it provides no security. Never use Base64 to protect sensitive data.</p>
+</div>
+<div class="faq">
+<h3>Does Base64 make data larger?</h3>
+<p>Yes. Base64 increases data size by approximately 33% (every 3 bytes becomes 4 characters). This is the overhead of making binary data text-safe.</p>
+</div>
+<div class="faq">
+<h3>Can I encode files with Base64?</h3>
+<p>Yes. Our tool supports file drag-and-drop for encoding any file type to Base64. The entire process runs in your browser — nothing is uploaded.</p>
+</div>
+
+<script>
+document.querySelectorAll('.faq h3').forEach(h3=>{h3.addEventListener('click',()=>{const p=h3.nextElementSibling;p.style.display=p.style.display==='block'?'none':'block'})});
+</script>
+</div>
+</body>
+</html>
