@@ -138,7 +138,6 @@ textarea:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,10
 <a href="https://xueboyang1985.github.io/background-remover/" target="_blank" style="color:#6366f1;">Try AI Background Remover &rarr;</a>
 </div>
 
-
 <div class="footer">
 <p>100% local &bull; No upload &bull; No server &bull; Your data never leaves your device</p>
 </div>
@@ -153,8 +152,11 @@ textarea:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,10
 <tr><td>All encode/decode modes</td><td>Yes</td><td>Yes</td></tr>
 <tr><td>File upload</td><td>Yes</td><td>Yes</td></tr>
 </table>
-<p class="pro-price">$19.99 <span>one-time payment (bundle covers all tools)</span></p>
-<p style="text-align:center;margin-bottom:12px;"><a href="javascript:void(0)" id="btn-buy-pro" class="btn btn-primary" style="text-decoration:none;display:inline-block;padding:10px 24px;">Buy PRO Bundle</a></p>
+<p class="pro-price">$9.99 <span>one-time payment (this tool)</span> &middot; $19.99 <span>bundle (all tools)</span></p>
+<p style="text-align:center;margin-bottom:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+<a href="javascript:void(0)" id="btn-buy-pro" class="btn btn-primary" style="text-decoration:none;display:inline-block;padding:10px 24px;">Buy PRO $9.99</a>
+<a href="javascript:void(0)" id="btn-buy-bundle" class="btn btn-success" style="text-decoration:none;display:inline-block;padding:10px 24px;background:#059669;">Buy Bundle $19.99</a>
+</p>
 <div class="license-row">
 <input type="text" id="pro-key" placeholder="Paste your Gumroad license key here">
 <button class="btn btn-primary" onclick="actPRO()">Activate</button>
@@ -273,10 +275,21 @@ async function actPRO() {
     const r = await fetch('https://api.gumroad.com/v2/licenses/verify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product_id: 'UmtxldtyQVL0VD535UMDuA==', license_key: k })
+    });
+    var d = await r.json();
+    if (d.success && d.purchase) {
+      pro = 1; try { localStorage.setItem('b64_pro', '1'); } catch(e) {}
+      closeProModal(); document.getElementById('free-hint').innerHTML = 'PRO 已激活 &mdash; 无限制使用。'; toast('PRO 已激活！'); uc();
+      return;
+    }
+    // Try bundle key
+    var br = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ product_id: 'xdlh1FHKAU0E7q3ZRuHPaw==', license_key: k })
     });
-    const d = await r.json();
-    if (d.success && d.purchase) {
+    var bd = await br.json();
+    if (bd.success && bd.purchase) {
       pro = 1; try { localStorage.setItem('b64_pro', '1'); } catch(e) {}
       closeProModal(); document.getElementById('free-hint').innerHTML = 'PRO 已激活 &mdash; 无限制使用。'; toast('PRO 已激活！'); uc();
     } else {
@@ -298,11 +311,23 @@ window.addEventListener('message', function(e) {
   } catch(e1) {}
 });
 
-// Buy button
+// Buy buttons
 document.addEventListener('DOMContentLoaded', function() {
   var btn = document.getElementById('btn-buy-pro');
   if (btn) {
     btn.addEventListener('click', function() {
+      var url = 'https://xuebo8.gumroad.com/l/base64-pro';
+      var w = Math.min(600, window.innerWidth - 40);
+      var h = Math.min(700, window.innerHeight - 40);
+      var left = Math.max(0, (window.innerWidth - w) / 2);
+      var top = Math.max(0, (window.innerHeight - h) / 2);
+      var win = window.open(url, 'gumroad-checkout', 'width='+w+',height='+h+',left='+left+',top='+top+',menubar=no,toolbar=no,status=no');
+      if (!win) window.location.href = url;
+    });
+  }
+  var btn2 = document.getElementById('btn-buy-bundle');
+  if (btn2) {
+    btn2.addEventListener('click', function() {
       var url = 'https://xuebo8.gumroad.com/l/skxcpj';
       var w = Math.min(600, window.innerWidth - 40);
       var h = Math.min(700, window.innerHeight - 40);
